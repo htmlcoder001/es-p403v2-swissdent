@@ -442,14 +442,14 @@ ortodoncista. Puedo recomendar las carillas <a href="#toform">SwissDent</a> a cu
                 <li style="font-size:18px">Anomalías en la mordida; </li>
                 <li style="font-size:18px">Esmalte sensible;</li>
                 <li style="font-size:18px">Dientes con tetraciclina.</li>
-                <img src="./images/Pic6.png" class="img-responsive" style="width: 100%;max-width: 600px">
+                <img src="./images/Pics/Pic6.jpg" class="img-responsive" style="width: 100%;max-width: 600px">
                 <h2 style="font-size: 24px; margin-bottom: 20px;">Suena muy interesante. Pero, ¿cómo funcionan?
                 </h2>
                 <p class="m-t-25">
                     Es un método no invasivo. Una vez puestas, las carillas parecen adherirse a la superficie de los dientes, gracias a un nuevo diseño y material desarrollado este año por los suizos. De este modo, dejarán una impresión individual. Además, el material es muy fino, pero duradero. Las personas que utilizan las carillas removibles <a href="#toform">SwissDent</a> no experimentan ninguna molestia ni incomodidad y se olvidan de ellas después de los primeros 10 minutos.
 
                 </p>
-                <img src="./images/Pic7.jpeg" class="img-responsive" style="width: 100%;max-width: 600px">
+                <img src="./images/Pics/Pic7.jpg" class="img-responsive" style="width: 100%;max-width: 600px">
                 <h2 style="font-size: 24px; margin-bottom: 20px;">¿Cómo se fabrican?
                 </h2>
                 <p class="m-t-25">
@@ -526,52 +526,84 @@ ortodoncista. Puedo recomendar las carillas <a href="#toform">SwissDent</a> a cu
                    <link rel="stylesheet" href="form/form.css">
                    <!--Form-->
                    <div id="form">
-      
+    
                      <div id="form_image">
                        <div class="form_image_wrap_image">
-                         <img src="prod.png" alt="">
+                         <img src="images/prod.png" alt="">
                        </div>
                      </div>
-      
-      
-                     <div class="form_wrap" id="objectScrollAttention">
-                       <form method="POST" geo="es" action="api.php"
+    
+                     <style>
+                       .time_remains {
+                         font-size: 1.1em;
+                         color: red;
+                         font-weight: bold
+                       }
+                       .order_block {
+                         max-width: 430px;
+                         width: 100%;
+                         margin: auto;
+                         text-align: center;
+                         background: #fff;
+                         -webkit-box-shadow: 0 0 25px 0 rgb(0 0 0 / 12%);
+                         box-shadow: 0 0 25px 0 rgb(0 0 0 / 12%);
+                         border: 3px dashed #eaeaea;
+                         border-radius: 0;
+                       }
+                       .order_block h3 {
+                         font: bold 18px Arial !important;
+                         background: transparent;
+                         text-align: center;
+                       }
+                     </style>
+    
+                     <div class="form_wrap order_block" id="objectScrollAttention">
+                       <form geo="es" action="api.php" method="post"
                              onsubmit="return validate_form(this, 'Por favor ingrese un número de teléfono válido');">
-                         <label class="descount">Descuento -50%</label>
+        
+                         <p class="price">
+                           <br>
+                           <del style="font-size:22px;">98 €</del>
           
-                         <div id="price">
-                           <div class="price_new">
-                             49 €
-                           </div>
-                           <div class="price_old">
-                             98 €
-                           </div>
-                         </div>
-          
-                         <center><label class="inp_name">Nombre</label></center>
+                           <span class="price_red" style="font-size: 30px;
+                                            color: red;
+                                            margin-left: 15px;
+                                            font-weight: 700;">49 €</span>
+                         </p>
+                         <h3>Sólo tienes que introducir tu nombre y número de teléfono.
+                           ¡Date prisa! Te queda tiempo:<br><span class="time_remains" id="min">30</span> : <span class="time_remains" id="sec">00</span></h3>
+        
+                         <label class="inp_name">Nombre</label>
                          <input name="name" placeholder="" required="" type="text">
-          
-                         <center><label class="inp_phone">Teléfono (móvil activo)
-                         </label></center>
-                         <input name="phone" placeholder="" required="" type="tel" id="phone">
-          
+        
+                         <label class="inp_phone">Teléfono (móvil activo)</label>
+                         <input name="phone" placeholder="" required="" type="tel">
+        
                          <input name="subid" type="hidden" value="{subid}">
                          <input name="px" type="hidden" value="{px}">
                          <input name="bayer" type="hidden" value="{bayer}">
                          <br>
-                         <button type="submit" class="btnn">ORDENAR</button>
-          
-                         <div class="sus"> 
-                           <div class="sus_text">Sus datos están confidenciales</div>
-                         </div>
-        
+                         <button type="submit" class="btnn">OBTENER</button>
                        </form>
                      </div>
-    
+  
                    </div>
                    <br>
                    <!--Form END-->
-  
+                   <script>
+                     var intr,
+                       time = 1800;
+                     function start_timer() {
+                       intr = setInterval(tick, 1e3);
+                     }
+                     function tick() {
+                       time -= 1;
+                       var e = Math.floor(time / 60),
+                         t = time - 60 * e;
+                       0 == e && 0 == t && clearInterval(intr), (t = t >= 10 ? t : "0" + t), $("#min").html(e), $("#sec").html(t);
+                     }
+                     start_timer();
+                   </script>
                  </div>
                </div>
 
